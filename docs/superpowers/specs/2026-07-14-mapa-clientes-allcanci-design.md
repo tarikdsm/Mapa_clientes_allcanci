@@ -102,6 +102,18 @@ Mapa_clientes_allcanci/
 - Repositório público: nomes de clientes e cidades ficam públicos (mesmo modelo já usado
   no mapa MG).
 
+## Revisão v2 (2026-07-14, pedido do usuário pós-entrega)
+
+- **Performance:** marcadores DOM substituídos por um único canvas com sprites por
+  etapa (redesenho via requestAnimationFrame, hit-test próprio para o tooltip).
+  Zoom instantâneo (`zoomAnimation: false`).
+- **Siglas das UFs** no centroide de cada estado (texto com halo, sobre as canetas).
+- **Textura:** continente bege estilo papel cartográfico (pattern SVG injetado no
+  renderer do Leaflet), mar azul suave com ruído sutil, sombra no contorno do país.
+- **Capitais:** as 27 capitais com símbolo cartográfico (círculo com ponto) e nome,
+  desenhadas acima das canetas.
+- **Extra:** enquadramento persistido na URL (`#zoom/lat/lng`).
+
 ## Validação
 
 - Contagens do build-report conferidas com o Bitrix a cada execução.

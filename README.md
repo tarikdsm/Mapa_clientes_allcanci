@@ -63,8 +63,18 @@ python -m http.server 8123
 
 ## Recursos do site
 
-- Tooltip com o nome do cliente ao passar o mouse no ícone
+- Tooltip com o nome do cliente ao passar o mouse no ícone (toque no celular)
 - Legenda com contagem e liga/desliga por etapa
+- Siglas das UFs e capitais (símbolo + nome) desenhadas no mapa
+- Continente com textura bege estilo papel cartográfico; mar azul suave
 - Botão Imprimir (CSS de impressão dedicado, A4 paisagem)
 - Botão Capturar PNG (download da imagem do mapa)
 - Responsivo (desktop, tablet e celular)
+- Enquadramento compartilhável via URL (`#zoom/lat/lng`)
+
+## Performance
+
+Os ~2,7 mil clientes são desenhados em **um único canvas** (sprites por etapa,
+redesenho por `requestAnimationFrame`), em vez de milhares de nós DOM — pan e zoom
+permanecem fluidos mesmo com o volume total. Siglas de UF e capitais são desenhadas
+no mesmo canvas com halo branco para legibilidade.
