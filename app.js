@@ -105,41 +105,174 @@
     ctx.closePath();
   }
 
+  // Clareia (f > 1, mistura com branco) ou escurece (f < 1) uma cor hex.
+  function shade(hex, f) {
+    var n = parseInt(hex.slice(1), 16);
+    var r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+    if (f <= 1) { r *= f; g *= f; b *= f; }
+    else { var m = f - 1; r += (255 - r) * m; g += (255 - g) * m; b += (255 - b) * m; }
+    return "rgb(" + Math.round(r) + "," + Math.round(g) + "," + Math.round(b) + ")";
+  }
+
+  /* Marcador de quadro branco estilo BIC, desenhado em espaço 48x80:
+     tampa abaulada com clipe, corpo cilíndrico com brilho, etiqueta branca,
+     anel escuro, bico cônico marfim e ponta de feltro em bala.
+     Âncora: ponta em (24, 80). */
   function makePenSprite(color, size) {
     var w = size;
-    var h = (size * 40) / 24;
+    var h = (size * 40) / 24; // mesma proporção 3:5 usada no hit-test
     var canvas = document.createElement("canvas");
     canvas.width = Math.ceil(w * DPR);
     canvas.height = Math.ceil(h * DPR);
     var ctx = canvas.getContext("2d");
-    ctx.scale((w * DPR) / 24, (h * DPR) / 40);
-    ctx.lineWidth = 1.6;
-    ctx.strokeStyle = "#1e293b";
+    ctx.scale((w * DPR) / 48, (h * DPR) / 80);
     ctx.lineJoin = "round";
+    ctx.lineCap = "round";
 
-    // corpo
-    roundRectPath(ctx, 6, 8, 12, 22, 2);
-    ctx.fillStyle = color;
-    ctx.fill();
-    ctx.stroke();
-    // tampa
-    roundRectPath(ctx, 7, 1, 10, 7, 2);
-    ctx.fillStyle = color;
-    ctx.fill();
-    ctx.stroke();
-    // etiqueta clara
-    roundRectPath(ctx, 7.5, 16, 9, 5, 1);
-    ctx.fillStyle = "rgba(255,255,255,0.8)";
-    ctx.fill();
-    // ponta
+    var outline = "rgba(30,41,59,0.85)";
+    var OUT_W = 2;
+
+    function cylinderGradient(x0, x1, base) {
+      var grad = ctx.createLinearGradient(x0, 0, x1, 0);
+      grad.addColorStop(0, shade(base, 0.78));
+      grad.addColorStop(0.28, shade(base, 1.35));
+      grad.addColorStop(0.55, base);
+      grad.addColorStop(1, shade(base, 0.6));
+      return grad;
+    }
+
+    // sombra de contato no ponto ancorado
     ctx.beginPath();
-    ctx.moveTo(9, 30);
-    ctx.lineTo(15, 30);
-    ctx.lineTo(13, 38);
-    ctx.lineTo(11, 38);
-    ctx.closePath();
-    ctx.fillStyle = "#334155";
+    ctx.ellipse(24, 78.6, 7, 2, 0, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(15,23,42,0.16)";
     ctx.fill();
+
+    // bico cônico (marfim, lados côncavos)
+    ctx.beginPath();
+    ctx.moveTo(15, 53);
+    ctx.lineTo(33, 53);
+    ctx.bezierCurveTo(31.2, 61, 28.6, 65.5, 27.6, 70);
+    ctx.lineTo(20.4, 70);
+    ctx.bezierCurveTo(19.4, 65.5, 16.8, 61, 15, 53);
+    ctx.closePath();
+    var cone = ctx.createLinearGradient(15, 0, 33, 0);
+    cone.addColorStop(0, "#d9d3c2");
+    cone.addColorStop(0.3, "#fffdf5");
+    cone.addColorStop(0.65, "#f1ecdd");
+    cone.addColorStop(1, "#c9c2ae");
+    ctx.fillStyle = cone;
+    ctx.fill();
+    ctx.lineWidth = OUT_W;
+    ctx.strokeStyle = outline;
+    ctx.stroke();
+
+    // ponta de feltro (bala arredondada)
+    ctx.beginPath();
+    ctx.moveTo(20.4, 70);
+    ctx.lineTo(27.6, 70);
+    ctx.bezierCurveTo(27.6, 74.8, 26.2, 78, 24, 78.8);
+    ctx.bezierCurveTo(21.8, 78, 20.4, 74.8, 20.4, 70);
+    ctx.closePath();
+    ctx.fillStyle = (function () {
+      var grad = ctx.createLinearGradient(20.4, 0, 27.6, 0);
+      grad.addColorStop(0, shade(color, 0.55));
+      grad.addColorStop(0.4, shade(color, 0.95));
+      grad.addColorStop(1, shade(color, 0.45));
+      return grad;
+    })();
+    ctx.fill();
+    ctx.lineWidth = OUT_W * 0.9;
+    ctx.stroke();
+
+    // corpo cilíndrico (leve afunilamento por Bézier)
+    ctx.beginPath();
+    ctx.moveTo(14.5, 20);
+    ctx.lineTo(33.5, 20);
+    ctx.bezierCurveTo(34.1, 30, 34, 42, 33.2, 49);
+    ctx.lineTo(14.8, 49);
+    ctx.bezierCurveTo(14, 42, 13.9, 30, 14.5, 20);
+    ctx.closePath();
+    ctx.fillStyle = cylinderGradient(14, 34, color);
+    ctx.fill();
+    ctx.lineWidth = OUT_W;
+    ctx.stroke();
+
+    // anel/colar escuro entre corpo e bico
+    ctx.beginPath();
+    ctx.moveTo(14.8, 49);
+    ctx.lineTo(33.2, 49);
+    ctx.lineTo(33, 53);
+    ctx.lineTo(15, 53);
+    ctx.closePath();
+    ctx.fillStyle = (function () {
+      var grad = ctx.createLinearGradient(15, 0, 33, 0);
+      grad.addColorStop(0, shade(color, 0.5));
+      grad.addColorStop(0.35, shade(color, 0.85));
+      grad.addColorStop(1, shade(color, 0.42));
+      return grad;
+    })();
+    ctx.fill();
+    ctx.lineWidth = OUT_W * 0.9;
+    ctx.stroke();
+
+    // etiqueta branca com linhas de "texto"
+    roundRectPath(ctx, 17, 30.5, 14, 12.5, 2.5);
+    ctx.fillStyle = "rgba(255,255,255,0.94)";
+    ctx.fill();
+    ctx.lineWidth = 0.9;
+    ctx.strokeStyle = "rgba(100,92,70,0.35)";
+    ctx.stroke();
+    ctx.strokeStyle = "rgba(100,100,110,0.4)";
+    ctx.lineWidth = 1.1;
+    ctx.beginPath();
+    ctx.moveTo(19.2, 34.5); ctx.lineTo(28.8, 34.5);
+    ctx.moveTo(19.2, 37.5); ctx.lineTo(26.5, 37.5);
+    ctx.stroke();
+
+    // tampa abaulada com aba inferior
+    ctx.beginPath();
+    ctx.moveTo(13.2, 19.6);
+    ctx.lineTo(13.2, 17.4);
+    ctx.lineTo(14.8, 16.4);
+    ctx.lineTo(14.8, 8);
+    ctx.bezierCurveTo(14.8, 3.4, 18.2, 1.8, 24, 1.8);
+    ctx.bezierCurveTo(29.8, 1.8, 33.2, 3.4, 33.2, 8);
+    ctx.lineTo(33.2, 16.4);
+    ctx.lineTo(34.8, 17.4);
+    ctx.lineTo(34.8, 19.6);
+    ctx.closePath();
+    ctx.fillStyle = (function () {
+      var grad = ctx.createLinearGradient(13.2, 0, 34.8, 0);
+      grad.addColorStop(0, shade(color, 0.72));
+      grad.addColorStop(0.28, shade(color, 1.28));
+      grad.addColorStop(0.55, shade(color, 0.94));
+      grad.addColorStop(1, shade(color, 0.55));
+      return grad;
+    })();
+    ctx.fill();
+    ctx.lineWidth = OUT_W;
+    ctx.strokeStyle = outline;
+    ctx.stroke();
+
+    // clipe da tampa (levemente saliente à direita)
+    roundRectPath(ctx, 30.9, 5.4, 3.6, 13.4, 1.7);
+    ctx.fillStyle = shade(color, 0.66);
+    ctx.fill();
+    ctx.lineWidth = OUT_W * 0.8;
+    ctx.stroke();
+
+    // brilho especular na tampa e no corpo
+    ctx.strokeStyle = "rgba(255,255,255,0.55)";
+    ctx.lineWidth = 2.4;
+    ctx.beginPath();
+    ctx.moveTo(17.6, 5.6);
+    ctx.bezierCurveTo(16.8, 8, 16.8, 12, 17.2, 14.5);
+    ctx.stroke();
+    ctx.strokeStyle = "rgba(255,255,255,0.4)";
+    ctx.beginPath();
+    ctx.moveTo(17.4, 22.5);
+    ctx.bezierCurveTo(16.9, 28, 16.9, 42, 17.4, 47);
+    ctx.stroke();
 
     return { canvas: canvas, w: w, h: h };
   }
@@ -481,7 +614,8 @@
 
         var swatch = document.createElement("span");
         swatch.className = "swatch";
-        swatch.style.background = stage.color;
+        swatch.style.backgroundImage =
+          "url(" + makePenSprite(stage.color, 14).canvas.toDataURL() + ")";
 
         var text = document.createElement("span");
         text.textContent = stage.label;

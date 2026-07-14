@@ -172,9 +172,8 @@ body {
 .legend .swatch {
   flex: 0 0 auto;
   width: 14px;
-  height: 14px;
-  border-radius: 4px;
-  border: 1px solid rgba(15, 23, 42, 0.4);
+  height: 23px;
+  background: center / contain no-repeat;
 }
 
 .legend .count {
