@@ -1,0 +1,204 @@
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  background: #f1f5f9;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 18px;
+  background: #0f172a;
+  color: #f8fafc;
+  flex-wrap: wrap;
+}
+
+.topbar-title h1 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.topbar-title p {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.topbar-actions button {
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: #f8fafc;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.topbar-actions button:hover {
+  background: #334155;
+}
+
+.content {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+  background: #d7e8f7; /* mar */
+  --pen-size: 12px;
+}
+
+/* Icone de caneta de quadro branco */
+.pen-icon {
+  background: none;
+  border: none;
+}
+
+.pen-icon svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--pen-size);
+  height: calc(var(--pen-size) * 40 / 24);
+  transform: translate(-50%, -100%);
+  filter: drop-shadow(0 1px 1px rgba(15, 23, 42, 0.35));
+  pointer-events: auto;
+}
+
+.leaflet-tooltip.client-tooltip {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.25);
+}
+
+/* Legenda sobreposta */
+.legend {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.2);
+  max-width: 250px;
+  max-height: calc(100% - 28px);
+  overflow-y: auto;
+}
+
+.legend h2 {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #475569;
+}
+
+.legend ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legend li {
+  margin: 2px 0;
+}
+
+.legend label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 3px 0;
+}
+
+.legend .swatch {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(15, 23, 42, 0.4);
+}
+
+.legend .count {
+  margin-left: auto;
+  color: #64748b;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Telas pequenas */
+@media (max-width: 720px) {
+  .topbar-title h1 { font-size: 1rem; }
+  .legend {
+    top: auto;
+    bottom: 14px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    max-height: 38%;
+  }
+  .legend label { font-size: 0.78rem; }
+}
+
+/* Impressao */
+@media print {
+  @page { size: A4 landscape; margin: 8mm; }
+
+  .topbar-actions,
+  .leaflet-control-zoom {
+    display: none !important;
+  }
+
+  html, body { height: auto; }
+
+  .topbar {
+    background: #ffffff;
+    color: #0f172a;
+    padding: 4px 0;
+  }
+
+  .topbar-title p { color: #475569; }
+
+  .content {
+    position: static;
+    height: 175mm;
+  }
+
+  #map {
+    position: relative;
+    height: 100%;
+  }
+
+  .legend {
+    box-shadow: none;
+    background: #ffffff;
+  }
+
+  .legend input[type="checkbox"] { display: none; }
+}

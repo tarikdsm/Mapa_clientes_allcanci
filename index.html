@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa de Clientes — Allcanci</title>
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 40'%3E%3Crect x='6' y='8' width='12' height='22' rx='2' fill='%232F9E44' stroke='%231e293b'/%3E%3Crect x='7' y='1' width='10' height='7' rx='2' fill='%23e2e8f0' stroke='%231e293b'/%3E%3Cpolygon points='9,30 15,30 13,38 11,38' fill='%23334155'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-title">
+      <h1>Mapa de Clientes — Allcanci</h1>
+      <p id="updated-at">Carregando dados…</p>
+    </div>
+    <div class="topbar-actions">
+      <button id="btn-print" type="button" title="Imprimir o mapa">🖨️ Imprimir</button>
+      <button id="btn-shot" type="button" title="Baixar imagem PNG do mapa">📷 Capturar PNG</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <div id="map" role="application" aria-label="Mapa do Brasil com clientes Allcanci"></div>
+    <aside id="legend" class="legend" aria-label="Legenda por etapa comercial">
+      <h2>Etapas</h2>
+      <ul id="legend-items"></ul>
+    </aside>
+  </main>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="vendor/leaflet-simple-map-screenshoter.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

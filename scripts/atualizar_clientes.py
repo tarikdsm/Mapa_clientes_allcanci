@@ -11,6 +11,7 @@ cidade/bairro com cache Nominatim e gera os arquivos consumidos pelo site.
 from __future__ import annotations
 
 import datetime as dt
+import gzip
 import hashlib
 import json
 import math
@@ -496,7 +497,10 @@ def ensure_estados_geojson() -> None:
     print("Baixando malha estadual do IBGE...")
     request = Request(IBGE_ESTADOS_URL, headers={"User-Agent": USER_AGENT})
     with urlopen(request, timeout=240) as response:
-        payload = json.load(response)
+        raw = response.read()
+    if raw[:2] == b"\x1f\x8b":
+        raw = gzip.decompress(raw)
+    payload = json.loads(raw.decode("utf-8"))
     ESTADOS_GEOJSON.write_text(
         json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
