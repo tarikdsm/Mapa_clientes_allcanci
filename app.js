@@ -317,7 +317,12 @@
     return div.innerHTML;
   }
 
+  var dragging = false;
+  map.on("dragstart", function () { dragging = true; });
+  map.on("dragend", function () { dragging = false; });
+
   map.on("mousemove", function (event) {
+    if (dragging) return;
     var item = findPenAt(event.containerPoint);
     if (item) {
       showTooltip(item);
