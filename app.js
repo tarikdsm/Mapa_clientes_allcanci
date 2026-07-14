@@ -28,7 +28,8 @@
     return (
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 40">' +
       '<rect x="6" y="8" width="12" height="22" rx="2" fill="' + color + '" stroke="#1e293b" stroke-width="1.5"/>' +
-      '<rect x="7" y="1" width="10" height="7" rx="2" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>' +
+      '<rect x="7" y="1" width="10" height="7" rx="2" fill="' + color + '" stroke="#1e293b" stroke-width="1.5"/>' +
+      '<rect x="7.5" y="16" width="9" height="5" rx="1" fill="#ffffff" opacity="0.8"/>' +
       '<polygon points="9,30 15,30 13,38 11,38" fill="#334155"/>' +
       "</svg>"
     );
@@ -44,11 +45,11 @@
   });
 
   function penSizeForZoom(zoom) {
-    if (zoom <= 4) return 12;
-    if (zoom <= 5) return 16;
-    if (zoom <= 6) return 20;
-    if (zoom <= 7) return 24;
-    return 30;
+    if (zoom <= 4) return 10;
+    if (zoom <= 5) return 13;
+    if (zoom <= 6) return 17;
+    if (zoom <= 7) return 22;
+    return 28;
   }
 
   function applyPenSize() {
