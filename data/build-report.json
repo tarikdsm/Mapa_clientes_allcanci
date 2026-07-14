@@ -1,0 +1,425 @@
+{
+  "generated_at": "2026-07-14T14:04:56.248021+00:00",
+  "total_clients": 2773,
+  "published": 2671,
+  "ignored_count": 102,
+  "counts_por_etapa": {
+    "Concluído (cliente)": 515,
+    "Assinatura de Contrato": 2,
+    "Licitação/Publicação": 5,
+    "Fechamento": 329,
+    "Em Negociação": 817,
+    "A Visitar": 994,
+    "Contato Futuro": 9
+  },
+  "ignored": [
+    {
+      "name": "",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Amor saude Betim",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "amor saude santa luzia",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Antilhas",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "big doctor",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "CEFET ITATIAIUÇU",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "CEMEI ANEIDES DA SILVA BORGES",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Centro Estadual De Educacao Profissional Petronio Portela",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Colégio batista floresta",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "colégio e curso carvalho braga",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Colégio Elo Vespasiano",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Colégio estadual sacra famíliaf",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Colégio Rio Branco",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Colégio tiradentes",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "E E Cordovil Pinto Coelho",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "E E Dr. Waldemar Neves da Rocha",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "E.E Domingos Pinto Brochado",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "E.E Prof Juscelino Kubitschek de Oliveira",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "E.E PROFESSORA GERALDA MAGELA LEÃO DE MELO",
+      "reason": "geocodificacao falhou (Itauu/?)"
+    },
+    {
+      "name": "EE DOUTOR NAPOLEÃO SALLES",
+      "reason": "geocodificacao falhou (Afenas/MG)"
+    },
+    {
+      "name": "EE Dr Antônio Carlos",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EE DR. CÍCERO FERREIRA",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EE ensino fundamental anos finais",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EE EVERALDO GONÇALVES BOTELHO",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EE Manuel Antônio de Souza",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "ee Moacir de Souza Rios",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EE NYRCE VILLA VERDE COELHO DE MAGALHÃES - Allcanci",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EE Pe Rogério Abdala",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EE PROFESSOR GUINES AFFONSO MORALES",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EE SEBASTIÃO PATRUS DE SOUSA Allcanci",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EE TESTE DIOGO",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EM Barão do rio branco",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EM EUGÊNIA SCHARLÉ",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EMEF PROFESSORA MARIA HELENA FARIA LIMA",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EP Anhanguera - Pitágoras Betim",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "EP Colégio Monte Calvário BH",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Classe 15 de Planaltina",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Cristã Gotinha do Saber",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Estadual de Ouro Preto – Helena Antipoff",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Estadual do Bairro Darci Ribeiro",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Estadual Dr Lucas Monteiro Machado",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola estadual em Limeira sp",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola estadual João parreira vilca",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola estadual professora Lizete Paulino Teixeira",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "ESCOLA ESTADUAL SANTO ANTÔNIO",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Municipal Dona Maria Rosa",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Municipal Dora de Mattos",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Municipal Maria de Rezende",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Municipal Padre Joaquim De Souza Silva",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Municipal Professora Audrei Consolação Ferreira de Freitas Costa",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola SEB - Unimaster",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Escola Sesi Araçuaí",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Facitec",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Facsete",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Faculdade ASA de Brumadinho",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Faminas",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Fundação Pedro Leopoldo",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "FUNEC OITIS",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "gastrocentro",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Hospital Belo Horizonte",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Hospital Felicio Rocho",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "HOSPITAL SÃO SEBASTIÃO",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "INSTITUTO NOVOS HORIZONTES DE ENSINO SUPERIOR E PESQUISAS LTDA",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "LAMEGO DIAGNOSTICOS",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "MAPLE BEAR CANADIAN SCHOLL BETIM",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Municipio de Brumadinho",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Municipio Igarapé",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Municipio São Joaquim de Bicas",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "MUNICÍPIO DE BETIM",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "NEO NUCLEO DE EXCELENCIA OFTALMOLOGICA",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Newton Paiva Unidade Carlos Luz",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "PEdra azul",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "PREFEITURA DE BOM DESPACHO",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Prefeitura Municipal de Lagoa Santa",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "PRESIDENTE ARTHUR DA SILVA BERNARDES",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Projeto Educacional Ninho",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Puc Minas",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Rede Chromos",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "REDE SESI/FIEMG",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Rodrigo",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Rui barbosa",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Sacré-Coeur de Marie",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Sec. Municipal de Educação de Machacalis",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Secretaria de educação de bh",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "SECRETARIA DE EDUCAÇÃO DE VIRGINÓPOLIS",
+      "reason": "geocodificacao falhou (dom viloso/?)"
+    },
+    {
+      "name": "secretaria de ibirite",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Secretaria Municipal de Educação de Belo Horizonte",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "SECRETARIA MUNICIPAL DE EDUCAÇÃO DE VISCONDE DO RIO BRANCO",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Secretária de são Gonçalo do para",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "SECRETÁRIA MUNICIPAL DE EDUCAÇÃO JOAIMA",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Secretária municipal de Sarzedo",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "SEMED (secretária municipal de itauna)",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Sesi/Fiemg",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "sociedade mineira de cultura",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Superintendência Regional de Ensino de Almenara",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "São Luiz",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Só Educar e Sejan",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Teste",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "UNEC – Centro Universitário de Caratinga",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Unicesumar",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Universidade do Estado de Minas Gerais",
+      "reason": "sem cidade"
+    },
+    {
+      "name": "Universidade Faseh",
+      "reason": "sem cidade"
+    }
+  ]
+}

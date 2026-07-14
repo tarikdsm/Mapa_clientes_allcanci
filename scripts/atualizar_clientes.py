@@ -293,7 +293,7 @@ def build_client(
     raw_name = clean_text(company.get("TITLE") if company else "") or strip_brand_suffix(
         clean_text(deal.get("TITLE"))
     )
-    name = fix_mojibake(raw_name)
+    name = re.sub(r"^[\s\-–]+", "", fix_mojibake(raw_name))
 
     def comp(key: str) -> Any:
         return company.get(COMPANY_FIELDS[key]) if company else ""
