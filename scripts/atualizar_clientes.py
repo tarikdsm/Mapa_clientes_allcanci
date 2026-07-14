@@ -515,7 +515,10 @@ def build_outputs(clients: list[dict[str, Any]], cache: dict[str, Any]) -> None:
     counts: dict[str, int] = {stage["label"]: 0 for stage in STAGES}
     coord_usage: dict[str, int] = {}
 
-    for client in clients:
+    for processed, client in enumerate(clients, start=1):
+        if processed % 200 == 0:
+            save_cache(cache)  # protege o progresso da geocodificacao
+            print(f"  geocodificacao: {processed}/{len(clients)} clientes")
         if not client["city"]:
             ignored.append({"name": client["name"], "reason": "sem cidade"})
             continue
